@@ -1,8 +1,14 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-function App() {
-  return <h1>Hello Wors</h1>;
+import React, { Component } from 'react';
+import Header from './Components/Header/Header';
+class App extends Component {
+  render() {
+    return (
+      <>
+        <Header />
+        <div className="container">content</div>
+      </>
+    );
+  }
 }
 
 export default App;
