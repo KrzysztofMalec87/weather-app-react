@@ -14,7 +14,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "fix-js": "prettier --write \"./**/*.{js,jsx}\"",
+    "fix-js": "prettier --write \"src/**/*.{js,jsx}\"",
     "fix-styles": "prettier --write \"src/**/*.{css,scss}\""
   },
   "eslintConfig": {
