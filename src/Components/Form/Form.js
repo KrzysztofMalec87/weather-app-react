@@ -19,7 +19,7 @@ class Form extends Component {
     return (
       <div className="search-form" onSubmit={this.submitForm}>
         <h5 className="search-form__heading">Search by location</h5>
-        <form className="search-form__form">
+        <form autoComplete="off" className="search-form__form">
           <input
             className="search-form__text-input"
             name="location"
