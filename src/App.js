@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Components/Header/Header';
 import Form from './Components/Form/Form';
+import WeatherDetails from './Components/WeatherDetails/WeatherDetails';
 
 class App extends Component {
   state = {
@@ -14,13 +15,14 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.weatherData);
+    const { weatherData } = this.state;
 
     return (
       <>
         <Header />
         <div className="container">
           <Form handleState={this.handleState} />
+          {weatherData && <WeatherDetails apiRequestData={weatherData} />}
         </div>
       </>
     );
