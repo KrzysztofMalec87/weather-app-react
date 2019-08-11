@@ -52,7 +52,7 @@ const WeatherDetails = ({ apiRequestData }) => {
             <b>Humidity:</b> {humidity} %
           </div>
           <div className="weather-details__item">
-            <b>Humidity:</b> {pressure} hPa
+            <b>Pressure:</b> {pressure} hPa
           </div>
         </div>
       </div>
