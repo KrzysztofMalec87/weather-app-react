@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+import ApiRequest from '../ApiRequest/ApiRequest';
 import './Form.scss';
 
 class Form extends Component {
   submitForm = event => {
     event.preventDefault();
+
+    const locationFieldValue = event.target.location.value;
+    const data = ApiRequest(locationFieldValue);
+
+    fetch(data)
+      .then(response => response.json())
+      .then(response => this.props.handleState(response))
+      .catch(error => console.error('Error:', error));
   };
 
   render() {
@@ -11,7 +20,11 @@ class Form extends Component {
       <div className="search-form" onSubmit={this.submitForm}>
         <h5 className="search-form__heading">Search by location</h5>
         <form className="search-form__form">
-          <input className="search-form__text-input" type="text" />
+          <input
+            className="search-form__text-input"
+            name="location"
+            type="text"
+          />
           <input
             className="search-form__submit-input"
             type="submit"
