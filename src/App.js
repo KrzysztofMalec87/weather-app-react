@@ -21,7 +21,7 @@ class App extends Component {
       <>
         <Header />
         <div className="container">
-          <Form handleState={this.handleState} />
+          <Form onFormSubmit={this.setWheaterData} />
           {weatherData && <WeatherDetails apiRequestData={weatherData} />}
         </div>
       </>
