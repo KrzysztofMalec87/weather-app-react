@@ -9,11 +9,10 @@ class App extends Component {
     weatherData: null,
   };
 
-  handleState = data => {
+  setWheaterData = data =>
     this.setState({
       weatherData: data,
     });
-  };
 
   render() {
     const { weatherData } = this.state;
