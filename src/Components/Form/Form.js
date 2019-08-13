@@ -6,7 +6,11 @@ class Form extends Component {
   submitForm = event => {
     event.preventDefault();
 
-    const {target: {location: {value}}} = event;
+    const {
+      target: {
+        location: { value },
+      },
+    } = event;
     const API_ENDPOINT = ApiRequest(value);
 
     fetch(API_ENDPOINT)
