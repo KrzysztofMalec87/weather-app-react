@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ApiRequest from '../ApiRequest/ApiRequest';
-import './Form.scss';
 
 class Form extends Component {
   submitForm = event => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import './WeatherDetails.scss';
 
 const WeatherDetails = ({ data }) => {
   const { cod } = data;
