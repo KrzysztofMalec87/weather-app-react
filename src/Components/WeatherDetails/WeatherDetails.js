@@ -16,7 +16,7 @@ const WeatherDetails = ({ data }) => {
 
   const {
     name,
-    main: { temp, temp_max, temp_min, humidity, pressure },
+    main: { humidity, pressure, temp, temp_max, temp_min },
     wind: { speed },
     sys: { country },
   } = data;
