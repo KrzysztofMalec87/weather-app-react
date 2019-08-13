@@ -6,7 +6,7 @@ import WeatherDetails from './Components/WeatherDetails/WeatherDetails';
 
 class App extends Component {
   state = {
-    weatherData: '',
+    weatherData: null,
   };
 
   handleState = data => {
