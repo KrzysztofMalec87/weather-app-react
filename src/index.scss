@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Rajdhani:400,700&display=swap&subset=latin-ext');
+@import './Components/Form/Form.scss';
+@import './Components/Header/Header.scss';
+@import './Components/WeatherDetails/WeatherDetails.scss';
 
 body {
   font-family: 'Rajdhani', sans-serif;
