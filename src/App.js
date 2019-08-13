@@ -21,8 +21,8 @@ class App extends Component {
       <>
         <Header />
         <div className="container">
-          <Form onFormSubmit={this.setWheaterData} />
-          {weatherData && <WeatherDetails apiRequestData={weatherData} />}
+          <Form setWheaterData={this.setWheaterData} />
+          {weatherData && <WeatherDetails data={weatherData} />}
         </div>
       </>
     );

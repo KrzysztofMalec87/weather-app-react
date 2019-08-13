@@ -1,8 +1,8 @@
 import React from 'react';
 import './WeatherDetails.scss';
 
-const WeatherDetails = ({ apiRequestData }) => {
-  const { cod } = apiRequestData;
+const WeatherDetails = ({ data }) => {
+  const { cod } = data;
   const locationNotFound = cod !== 200 ? true : false;
 
   if (locationNotFound) {
@@ -20,7 +20,7 @@ const WeatherDetails = ({ apiRequestData }) => {
     main: { temp, temp_max, temp_min, humidity, pressure },
     wind: { speed },
     sys: { country },
-  } = apiRequestData;
+  } = data;
 
   return (
     <div className="weather-details">
