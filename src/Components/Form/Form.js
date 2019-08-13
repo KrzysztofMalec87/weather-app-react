@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+
 import ApiRequest from '../ApiRequest/ApiRequest';
 
 class Form extends Component {
   submitForm = event => {
     event.preventDefault();
 
-    const locationFieldValue = event.target.location.value;
-    const data = ApiRequest(locationFieldValue);
+    const {target: {location: {value}}} = event;
+    const API_ENDPOINT = ApiRequest(value);
 
-    fetch(data)
+    fetch(API_ENDPOINT)
       .then(response => response.json())
       .then(response => this.props.setWheaterData(response))
       .catch(error => console.error('Error:', error));
