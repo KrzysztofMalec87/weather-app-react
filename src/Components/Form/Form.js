@@ -11,7 +11,7 @@ class Form extends Component {
 
     fetch(data)
       .then(response => response.json())
-      .then(response => this.props.handleState(response))
+      .then(response => this.props.setWheaterData(response))
       .catch(error => console.error('Error:', error));
   };
 
