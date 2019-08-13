@@ -10,12 +10,12 @@
     "react-scripts": "3.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "fix:js": "prettier --write \"src/**/*.{js,jsx}\"",
-    "fix:styles": "prettier --write \"src/**/*.{css,scss}\""
+    "fix:styles": "prettier --write \"src/**/*.{css,scss}\"",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
