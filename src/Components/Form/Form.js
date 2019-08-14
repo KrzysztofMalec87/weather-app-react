@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
+  state = {
+    errorMessage: '',
+  };
+
+  setErrorMessage = data =>
+    this.setState({
+      errorMessage: data,
+    });
+
   submitForm = event => {
     event.preventDefault();
 
@@ -10,14 +19,25 @@ class Form extends Component {
       },
     } = event;
     const API_ENDPOINT = `${process.env.REACT_APP_WEATHER_API_URL}${value}${process.env.REACT_APP_WEATHER_API_KEY}`;
+    const { setWheaterData } = this.props;
 
     fetch(API_ENDPOINT)
       .then(response => response.json())
-      .then(response => this.props.setWheaterData(response))
-      .catch(error => console.error('Error:', error));
+      .then(json => setWheaterData(json))
+      .catch(error =>
+        this.setErrorMessage(
+          'There was an error while fetching data. Please refresh the page to try again.'
+        )
+      );
   };
 
   render() {
+    const { errorMessage } = this.state;
+
+    if (errorMessage) {
+      console.error(errorMessage);
+    }
+
     return (
       <div className="search-form" onSubmit={this.submitForm}>
         <h5 className="search-form__heading">Search by location</h5>
