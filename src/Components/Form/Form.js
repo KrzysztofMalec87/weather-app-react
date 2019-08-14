@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import ApiRequest from '../ApiRequest/ApiRequest';
-
 class Form extends Component {
   submitForm = event => {
     event.preventDefault();
@@ -11,7 +9,7 @@ class Form extends Component {
         location: { value },
       },
     } = event;
-    const API_ENDPOINT = ApiRequest(value);
+    const API_ENDPOINT = `${process.env.REACT_APP_WEATHER_API_URL}${value}${process.env.REACT_APP_WEATHER_API_KEY}`;
 
     fetch(API_ENDPOINT)
       .then(response => response.json())
