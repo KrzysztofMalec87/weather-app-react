@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { formatNumberToCelcius } from '../Utils/Utils';
+
 const WeatherDetails = ({ data }) => {
   const { cod } = data;
   const locationNotFound = cod !== 200 ? true : false;
@@ -36,13 +38,13 @@ const WeatherDetails = ({ data }) => {
             <b>Location:</b> {name}
           </div>
           <div className="weather-details__item">
-            <b>Temprature:</b> {(temp / 10).toFixed(2)} °C
+            <b>Temprature:</b> {formatNumberToCelcius(temp)} °C
           </div>
           <div className="weather-details__item">
-            <b>Minimum temprature:</b> {(temp_min / 10).toFixed(2)} °C
+            <b>Minimum temprature:</b> {formatNumberToCelcius(temp_min)} °C
           </div>
           <div className="weather-details__item">
-            <b>Maximum temprature:</b> {(temp_max / 10).toFixed(2)} °C
+            <b>Maximum temprature:</b> {formatNumberToCelcius(temp_max)} °C
           </div>
           <div className="weather-details__item">
             <b>Wind speed:</b> {speed} m/s
