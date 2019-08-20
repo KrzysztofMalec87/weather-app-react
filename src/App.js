@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Header from './Components/Header/Header';
-import Form from './Components/Form/Form';
-import WeatherDetails from './Components/WeatherDetails/WeatherDetails';
+import Header from './components/Header/Header';
+import Form from './components/Form/Form';
+import WeatherDetails from './components/WeatherDetails/WeatherDetails';
 
 class App extends Component {
   state = {

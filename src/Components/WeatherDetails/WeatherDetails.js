@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { formatNumberToCelcius } from '../Utils/Utils';
+import { formatNumberToCelcius } from '../../common/utils/Utils';
 
 const WeatherDetails = ({ data }) => {
   const { cod } = data;
