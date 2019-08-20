@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
+
 class Form extends Component {
   state = {
     errorMessage: '',
@@ -24,7 +26,7 @@ class Form extends Component {
     fetch(API_ENDPOINT)
       .then(response => response.json())
       .then(json => setWheaterData(json))
-      .catch(error =>
+      .catch(() =>
         this.setErrorMessage(
           'There was an error while fetching data. Please refresh the page to try again.'
         )
@@ -34,26 +36,25 @@ class Form extends Component {
   render() {
     const { errorMessage } = this.state;
 
-    if (errorMessage) {
-      console.error(errorMessage);
-    }
-
     return (
-      <div className="search-form" onSubmit={this.submitForm}>
-        <h5 className="search-form__heading">Search by location</h5>
-        <form autoComplete="off" className="search-form__form">
-          <input
-            className="search-form__text-input"
-            name="location"
-            type="text"
-          />
-          <input
-            className="search-form__submit-input"
-            type="submit"
-            value="Search"
-          />
-        </form>
-      </div>
+      <>
+        <div className="search-form" onSubmit={this.submitForm}>
+          {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+          <h5 className="search-form__heading">Search by location</h5>
+          <form autoComplete="off" className="search-form__form">
+            <input
+              className="search-form__text-input"
+              name="location"
+              type="text"
+            />
+            <input
+              className="search-form__submit-input"
+              type="submit"
+              value="Search"
+            />
+          </form>
+        </div>
+      </>
     );
   }
 }
