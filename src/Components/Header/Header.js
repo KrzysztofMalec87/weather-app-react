@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from '../../assets/Images/logo.png';
+import logo from '../../assets/images/logo.png';
 import { FadeInTop } from '../../common/Animations/Animations';
 
 const Header = ({ stateAnimation }) => {
