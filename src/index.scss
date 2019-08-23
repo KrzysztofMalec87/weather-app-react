@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Rajdhani:400,700&display=swap&subset=latin-ext');
 @import './components/Form/Form.scss';
 @import './components/Header/Header.scss';
+@import './components/Footer/Footer.scss';
 @import './components/WeatherDetails/WeatherDetails.scss';
 @import './components/ErrorMessage/ErrorMessage.scss';
 
 body {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 400;
+}
+
+.app-container{
+  position: relative;
+  padding-bottom: 180px;
+  min-height: 100vh;
 }
