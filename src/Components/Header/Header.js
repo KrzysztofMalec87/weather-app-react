@@ -1,13 +1,20 @@
 import React from 'react';
 
 import logo from '../../assets/Images/logo.png';
+import { FadeInTop } from '../../common/Animations/Animations';
 
-const Header = () => (
-  <header className="header">
-    <div className="container header__container">
-      <img alt="Weather App Logo" className="header__logo" src={logo} />
-    </div>
-  </header>
-);
+const Header = ({ stateAnimation }) => {
+  return (
+    <FadeInTop className="header" pose={stateAnimation ? 'visible' : 'hidden'}>
+      <FadeInTop
+        animationDelay={300}
+        className="container header__container"
+        pose={stateAnimation ? 'visible' : 'hidden'}
+      >
+        <img alt="Weather App Logo" className="header__logo" src={logo} />
+      </FadeInTop>
+    </FadeInTop>
+  );
+};
 
 export default Header;
