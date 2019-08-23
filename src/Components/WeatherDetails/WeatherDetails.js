@@ -1,5 +1,7 @@
 import React from 'react';
 
+import WeatherIcon from '../WeatherIcon/WeatherIcon';
+
 const WeatherDetails = ({ data }) => {
   const { cod } = data;
   const locationNotFound = cod !== 200 ? true : false;
@@ -19,6 +21,7 @@ const WeatherDetails = ({ data }) => {
     main: { humidity, pressure, temp, temp_max, temp_min },
     wind: { speed },
     sys: { country },
+    weather: [{ icon, desctiption }],
   } = data;
 
   return (
@@ -27,7 +30,9 @@ const WeatherDetails = ({ data }) => {
         Weather data for the location: <b>{name}</b>
       </div>
       <div className="weather-details__container">
-        <div className="weather-details__icon"></div>
+        <div className="weather-details__icon">
+          <WeatherIcon icon={icon} desctiption={desctiption} />
+        </div>
         <div className="weather-details__data">
           <div className="weather-details__item">
             <b>Country:</b> {country}
