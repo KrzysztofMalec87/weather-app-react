@@ -8,8 +8,8 @@ import { FadeInTop } from './common/animations/Animations';
 
 class App extends Component {
   state = {
-    weatherData: null,
     animationStart: false,
+    weatherData: null,
   };
 
   setWheaterData = data =>
