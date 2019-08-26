@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Form from './components/Form/Form';
-import WeatherDetails from './components/WeatherDetails/WeatherDetails';
-import { FadeInTop } from './common/Animations/Animations';
+import WeatherDetails from './components/weatherDetails/WeatherDetails';
+import { FadeInTop } from './common/animations/Animations';
 
 class App extends Component {
   state = {
