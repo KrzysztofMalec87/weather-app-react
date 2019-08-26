@@ -26,7 +26,7 @@ class App extends Component {
 
     return (
       <>
-        <Header stateAnimation={animationStart} />
+        <Header animationState={animationStart} />
         <FadeInTop
           animationDelay={100}
           className="container"
@@ -35,7 +35,7 @@ class App extends Component {
           <Form setWheaterData={this.setWheaterData} />
           {weatherData && <WeatherDetails data={weatherData} />}
         </FadeInTop>
-        <Footer stateAnimation={animationStart} />
+        <Footer animationState={animationStart} />
       </>
     );
   }
