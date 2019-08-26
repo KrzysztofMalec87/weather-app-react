@@ -31,7 +31,7 @@ const WeatherDetails = ({ data }) => {
       </div>
       <div className="weather-details__container">
         <div className="weather-details__icon">
-          <WeatherIcon icon={icon} desctiption={desctiption} />
+          <WeatherIcon desctiption={desctiption} icon={icon} />
         </div>
         <div className="weather-details__data">
           <div className="weather-details__item">
