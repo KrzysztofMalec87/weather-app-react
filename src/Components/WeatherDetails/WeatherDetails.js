@@ -17,10 +17,10 @@ const WeatherDetails = ({ data }) => {
   }
 
   const {
-    name,
     main: { humidity, pressure, temp, temp_max, temp_min },
-    wind: { speed },
+    name,
     sys: { country },
+    wind: { speed },
     weather: [{ icon, desctiption }],
   } = data;
 
