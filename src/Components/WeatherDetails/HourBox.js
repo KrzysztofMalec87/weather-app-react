@@ -3,34 +3,34 @@ import React from 'react';
 import WeatherIcon from '../WeatherIcon/WeatherIcon';
 import { FadeInTop } from '../../common/Animations/Animations';
 
-const WeatherAdditionalDetailsItem = ({ data, delay }) => {
+const HourBox = ({ data, delay }) => {
   const {
     dt_txt,
-    main: { temp, humidity },
+    main: { humidity, temp },
     weather: [{ description, icon }],
   } = data;
 
   return (
     <FadeInTop
       animationDelay={delay}
-      pose="visible"
       className="col-12 col-sm-6 col-md-4 col-lg-2"
       initialPose="hidden"
+      pose="visible"
     >
-      <div className="weather-additional-details-item">
+      <div className="hour-box-item">
         <WeatherIcon
-          icon={icon}
+          additionalClass="hour-box-item__icon"
           description={description}
-          additionalClass="weather-additional-details-item__icon"
+          icon={icon}
         />
-        <div className="weather-additional-details-item__item">{dt_txt}</div>
-        <div className="weather-additional-details-item__item">
+        <div className="hour-box-item__item">{dt_txt}</div>
+        <div className="hour-box-item__item">
           <b>Temprature:</b> {temp} °C
         </div>
-        <div className="weather-additional-details-item__item">
+        <div className="hour-box-item__item">
           <b>Humidity:</b> {humidity} %
         </div>
-        <div className="weather-additional-details-item__item">
+        <div className="hour-box-item__item">
           <b>Clouds:</b> {description}
         </div>
       </div>
@@ -38,4 +38,4 @@ const WeatherAdditionalDetailsItem = ({ data, delay }) => {
   );
 };
 
-export default WeatherAdditionalDetailsItem;
+export default HourBox;
