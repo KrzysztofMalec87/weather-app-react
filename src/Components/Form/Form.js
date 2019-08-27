@@ -27,12 +27,9 @@ class Form extends Component {
       .then(response => response.json())
       .then(json => setWheaterData(json))
       .catch(
-        err => {
-          console.log(err);
-        }
-        // this.setErrorMessage(
-        //   'There was an error while fetching data. Please refresh the page to try again.'
-        // )
+        this.setErrorMessage(
+          'There was an error while fetching data. Please refresh the page to try again.'
+        )
       );
   };
 

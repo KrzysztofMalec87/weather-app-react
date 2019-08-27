@@ -26,12 +26,9 @@ class App extends Component {
       .then(response => response.json())
       .then(json => this.setWheaterData(json))
       .catch(
-        err => {
-          console.log(err);
-        }
-        // this.setErrorMessage(
-        //   'There was an error while fetching data. Please refresh the page to try again.'
-        // )
+        this.setErrorMessage(
+          'There was an error while fetching data. Please refresh the page to try again.'
+        )
       );
   };
 
@@ -56,8 +53,8 @@ class App extends Component {
           pose={animationStart ? 'visible' : 'hidden'}
         >
           <Form
-            setWheaterData={this.setWheaterData}
             onSubmit={this.handleFormSubmit}
+            setWheaterData={this.setWheaterData}
           />
           {weatherData && <WeatherDetails data={weatherData} />}
         </FadeInTop>
