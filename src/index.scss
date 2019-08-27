@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Rajdhani:400,700&display=swap&subset=latin-ext');
 @import './components/Form/Form.scss';
-@import './components/Header/Header.scss';
-@import './components/Footer/Footer.scss';
-@import './components/WeatherIcon/WeatherIcon.scss';
-@import './components/ErrorMessage/ErrorMessage.scss';
+@import './components/header/Header.scss';
+@import './components/footer/Footer.scss';
+@import './components/weathericon/WeatherIcon.scss';
+@import './components/errormessage/ErrorMessage.scss';
 
-@import './components/WeatherDetails/WeatherDetails.scss';
-@import './components/WeatherDetails/WeatherShowMoreLessButton.scss';
-@import './components/WeatherDetails/HourBoxDetails.scss';
-@import './components/WeatherDetails/HourBox.scss';
+@import './components/weatherdetails/WeatherDetails.scss';
+@import './components/weatherdetails/WeatherShowMoreLessButton.scss';
+@import './components/weatherdetails/HourBoxDetails.scss';
+@import './components/weatherdetails/HourBox.scss';
 
 body {
   font-family: 'Rajdhani', sans-serif;
