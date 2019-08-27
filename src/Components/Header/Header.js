@@ -1,7 +1,7 @@
 import React from 'react';
 
 import logo from '../../assets/images/logo.png';
-import { FadeInTop } from '../../common/Animations/Animations';
+import { FadeInTop } from '../../common/animations/Animations';
 
 const Header = ({ animationState }) => (
   <FadeInTop className="header" pose={animationState ? 'visible' : 'hidden'}>

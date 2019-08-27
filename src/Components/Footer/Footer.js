@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FadeInTop } from '../../common/Animations/Animations';
+import { FadeInTop } from '../../common/animations/Animations';
 
 const Footer = ({ animationState }) => (
   <FadeInTop
