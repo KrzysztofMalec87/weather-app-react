@@ -1,30 +1,72 @@
 import React, { Component } from 'react';
 
 import Button from './WeatherShowMoreLessButton';
-import HourBoxDetails from '../weatherdetails/HourBoxDetails';
-import WeatherIcon from '../weathericon/WeatherIcon';
+import HourBoxDetails from './HourBoxDetails';
+import WeatherIcon from '../weatherIcon/WeatherIcon';
 import { FadeInTop } from '../../common/animations/Animations';
 
 class WeatherDetails extends Component {
   state = {
     active: false,
+    data: null,
+    error: false,
     showDetails: false,
-  };
-
-  showDetails = () => {
-    this.setState({
-      showDetails: !this.state.showDetails,
-    });
   };
 
   componentDidMount() {
     this.setState({ active: true });
   }
 
+  componentDidUpdate(prevProps) {
+    const { data: prevData } = prevProps;
+    const { data } = this.props;
+
+    if (prevData !== data) {
+      this.fetchDetails();
+    }
+  }
+
+  updateData = () => {
+    const { data } = this.props;
+
+    this.setState({ data });
+  };
+
+  showDetails = () => {
+    this.setState(
+      {
+        showDetails: true,
+      },
+      this.fetchDetails
+    );
+  };
+
+  hideDetails = () => {
+    this.setState({
+      showDetails: false,
+    });
+  };
+
+  fetchDetails = () => {
+    const {
+      data: {
+        coord: { lat, lon },
+      },
+    } = this.props;
+    const API_ENDPOINT = `${process.env.REACT_APP_WEATHER_API_FORECAST_URL}lat=${lat}&lon=${lon}&cnt=6${process.env.REACT_APP_WEATHER_API_KEY}`;
+
+    fetch(API_ENDPOINT)
+      .then(response => response.json())
+      .then(json => {
+        this.setState({ data: json });
+      })
+      .catch(() => this.setState({ error: true }));
+  };
+
   render() {
     const { cod } = this.props.data;
     const locationNotFound = cod !== 200;
-    const { showDetails, active } = this.state;
+    const { active } = this.state;
 
     if (locationNotFound) {
       return (
@@ -48,6 +90,7 @@ class WeatherDetails extends Component {
       weather: [{ icon, desctiption }],
       wind: { speed },
     } = this.props.data;
+    const { data, showDetails } = this.state;
 
     return (
       <>
@@ -89,11 +132,20 @@ class WeatherDetails extends Component {
                 <b>Pressure:</b> {pressure} hPa
               </div>
             </div>
-            <Button changeParentState={this.showDetails} />
+            <Button
+              changeParentState={
+                showDetails ? this.hideDetails : this.showDetails
+              }
+            />
           </div>
         </FadeInTop>
         {showDetails && (
-          <HourBoxDetails formState={showDetails} lat={lat} lon={lon} />
+          <HourBoxDetails
+            data={data}
+            formState={showDetails}
+            lat={lat}
+            lon={lon}
+          />
         )}
       </>
     );

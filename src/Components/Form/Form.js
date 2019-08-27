@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ErrorMessage from '../errormessage/ErrorMessage';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 
 class Form extends Component {
   state = {
@@ -26,11 +26,21 @@ class Form extends Component {
     fetch(API_ENDPOINT)
       .then(response => response.json())
       .then(json => setWheaterData(json))
-      .catch(() =>
-        this.setErrorMessage(
-          'There was an error while fetching data. Please refresh the page to try again.'
-        )
+      .catch(
+        err => {
+          console.log(err);
+        }
+        // this.setErrorMessage(
+        //   'There was an error while fetching data. Please refresh the page to try again.'
+        // )
       );
+  };
+
+  handleSubmit = event => {
+    const { onSubmit } = this.props;
+
+    event.preventDefault();
+    onSubmit(event);
   };
 
   render() {
@@ -38,10 +48,14 @@ class Form extends Component {
 
     return (
       <>
-        <div className="search-form" onSubmit={this.submitForm}>
+        <div className="search-form">
           {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
           <h5 className="search-form__heading">Search by location</h5>
-          <form autoComplete="off" className="search-form__form">
+          <form
+            autoComplete="off"
+            className="search-form__form"
+            onSubmit={this.handleSubmit}
+          >
             <input
               className="search-form__text-input"
               name="location"
