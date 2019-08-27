@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 
 import Button from './WeatherShowMoreLessButton';
-import { FadeInTop } from '../../common/Animations/Animations';
-import WeatherAdditionalDetails from '../WeatherDetails/WeatherAdditionalDetails';
+import HourBoxDetails from '../WeatherDetails/HourBoxDetails';
 import WeatherIcon from '../WeatherIcon/WeatherIcon';
+import { FadeInTop } from '../../common/Animations/Animations';
 
 class WeatherDetails extends Component {
   state = {
-    showAdditionalDetails: false,
     active: false,
+    showDetails: false,
   };
 
-  handleAdditionalDetailsState = () => {
+  showDetails = () => {
     this.setState({
-      showAdditionalDetails: !this.state.showAdditionalDetails,
+      showDetails: !this.state.showDetails,
     });
   };
 
@@ -23,8 +23,8 @@ class WeatherDetails extends Component {
 
   render() {
     const { cod } = this.props.data;
-    const locationNotFound = cod !== 200 ? true : false;
-    const { showAdditionalDetails, active } = this.state;
+    const locationNotFound = cod !== 200;
+    const { showDetails, active } = this.state;
 
     if (locationNotFound) {
       return (
@@ -41,12 +41,12 @@ class WeatherDetails extends Component {
     }
 
     const {
-      name,
+      coord: { lat, lon },
       main: { humidity, pressure, temp, temp_max, temp_min },
-      wind: { speed },
+      name,
       sys: { country },
       weather: [{ icon, desctiption }],
-      coord: { lat, lon },
+      wind: { speed },
     } = this.props.data;
 
     return (
@@ -61,7 +61,7 @@ class WeatherDetails extends Component {
           </div>
           <div className="weather-details__container">
             <div className="weather-details__icon">
-              <WeatherIcon icon={icon} desctiption={desctiption} />
+              <WeatherIcon desctiption={desctiption} icon={icon} />
             </div>
             <div className="weather-details__data">
               <div className="weather-details__item">
@@ -89,15 +89,11 @@ class WeatherDetails extends Component {
                 <b>Pressure:</b> {pressure} hPa
               </div>
             </div>
-            <Button changeParentState={this.handleAdditionalDetailsState} />
+            <Button changeParentState={this.showDetails} />
           </div>
         </FadeInTop>
-        {showAdditionalDetails && (
-          <WeatherAdditionalDetails
-            formState={showAdditionalDetails}
-            lat={lat}
-            lon={lon}
-          />
+        {showDetails && (
+          <HourBoxDetails formState={showDetails} lat={lat} lon={lon} />
         )}
       </>
     );

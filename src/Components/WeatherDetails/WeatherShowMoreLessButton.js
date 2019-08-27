@@ -7,7 +7,7 @@ class Button extends Component {
     active: false,
   };
 
-  handleActiveState = () => {
+  handleButtobState = () => {
     this.setState({ active: !this.state.active });
     this.props.changeParentState();
   };
@@ -17,9 +17,9 @@ class Button extends Component {
 
     return (
       <AnimateDetailsButton
-        onClick={this.handleActiveState}
+        className="weather-details-button"
+        onClick={this.handleButtobState}
         pose={active ? 'clicked' : 'init'}
-        className="weathet-details-button"
       >
         {active ? 'Hide hours' : 'Show hours'}
       </AnimateDetailsButton>
