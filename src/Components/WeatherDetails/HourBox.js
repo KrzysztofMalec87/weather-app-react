@@ -1,7 +1,7 @@
 import React from 'react';
 
-import WeatherIcon from '../WeatherIcon/WeatherIcon';
-import { FadeInTop } from '../../common/Animations/Animations';
+import WeatherIcon from '../weathericon/WeatherIcon';
+import { FadeInTop } from '../../common/animations/Animations';
 
 const HourBox = ({ data, delay }) => {
   const {

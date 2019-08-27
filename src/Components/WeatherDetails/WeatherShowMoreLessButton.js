@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { AnimateDetailsButton } from '../../common/Animations/Animations';
+import { AnimateDetailsButton } from '../../common/animations/Animations';
 
 class Button extends Component {
   state = {

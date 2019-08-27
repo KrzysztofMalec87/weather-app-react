@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import ErrorMessage from '../errormessage/ErrorMessage';
 import HourBox from './HourBox';
-import { FadeInTop } from '../../common/Animations/Animations';
+import { FadeInTop } from '../../common/animations/Animations';
 
 class HourBoxDetails extends Component {
   state = {
