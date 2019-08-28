@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Form from './components/Form/Form';
+import Footer from './components/footer/Footer';
+import Form from './components/form/Form';
+import Header from './components/header/Header';
 import WeatherDetails from './components/weatherDetails/WeatherDetails';
 import { FadeInTop } from './common/animations/Animations';
 
