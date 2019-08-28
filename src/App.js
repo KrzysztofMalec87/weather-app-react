@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Footer from './components/footer/Footer';
 import Form from './components/form/Form';
 import Header from './components/header/Header';
-import WeatherDetails from './components/weatherdetails/WeatherDetails';
+import WeatherDetails from './components/weatherDetails/WeatherDetails';
 import { FadeInTop } from './common/animations/Animations';
 
 class App extends Component {

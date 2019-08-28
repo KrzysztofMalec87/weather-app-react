@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ErrorMessage from '../errormessage/ErrorMessage';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 
 class Form extends Component {
   state = {

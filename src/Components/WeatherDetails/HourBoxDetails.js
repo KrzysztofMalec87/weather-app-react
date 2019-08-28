@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ErrorMessage from '../errormessage/ErrorMessage';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 import HourBox from './HourBox';
 import { FadeInTop } from '../../common/animations/Animations';
 
@@ -25,6 +25,24 @@ class HourBoxDetails extends Component {
     this.setState({ active: true });
     this.getAdditionalData();
   }
+
+  componentDidUpdate(prevProps) {
+    const { data: prevData } = prevProps;
+    const { data } = this.state.data;
+
+    if (prevData !== data) {
+      this.getAdditionalData();
+    }
+  }
+
+  updateData = () => {
+    const { data } = this.state.data;
+
+    this.setState({ data });
+  };
+
+
+
 
   render() {
     const { active, data, error } = this.state;

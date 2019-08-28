@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import Button from './WeatherShowMoreLessButton';
-import HourBoxDetails from '../weatherdetails/HourBoxDetails';
-import WeatherIcon from '../weathericon/WeatherIcon';
+import HourBoxDetails from '../weatherDetails/HourBoxDetails';
+import WeatherIcon from '../weatherIcon/WeatherIcon';
 import { FadeInTop } from '../../common/animations/Animations';
 
 class WeatherDetails extends Component {
