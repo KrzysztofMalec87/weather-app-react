@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 
 import Footer from './components/footer/Footer';
-import Form from './components/form/Form';
+import Form from './components/searchForm/SearchForm';
 import Header from './components/header/Header';
-import WeatherDetails from './components/weatherDetails/WeatherDetails';
+import WeatherDetails from './components/weatherDataBox/WeatherDataBox';
 import { FadeInTop } from './common/animations/Animations';
 
 class App extends Component {
   state = {
     animationStart: false,
+    error: null,
     weatherData: null,
   };
 
@@ -25,10 +26,11 @@ class App extends Component {
     fetch(API_ENDPOINT)
       .then(response => response.json())
       .then(json => this.setWheaterData(json))
-      .catch(
-        this.setErrorMessage(
-          'There was an error while fetching data. Please refresh the page to try again.'
-        )
+      .catch(() =>
+        this.setState({
+          error:
+            'There was an error while fetching data. Please refresh the page to try again.',
+        })
       );
   };
 

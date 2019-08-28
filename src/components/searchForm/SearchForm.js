@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ErrorMessage from '../errorMessage/ErrorMessage';
 
-class Form extends Component {
+class SearchForm extends Component {
   state = {
     errorMessage: '',
   };
@@ -70,4 +70,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default SearchForm;

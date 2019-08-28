@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
-import ErrorMessage from '../errorMessage/ErrorMessage';
-import HourBox from './HourBox';
+import HourBox from '../hourBox/HourBox';
 import { FadeInTop } from '../../common/animations/Animations';
 
-class HourBoxDetails extends Component {
+class HourBoxesContainer extends Component {
   state = {
     active: false,
   };
@@ -41,4 +40,4 @@ class HourBoxDetails extends Component {
   }
 }
 
-export default HourBoxDetails;
+export default HourBoxesContainer;

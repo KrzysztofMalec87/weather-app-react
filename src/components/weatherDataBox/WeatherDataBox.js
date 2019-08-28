@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import Button from './WeatherShowMoreLessButton';
-import HourBoxDetails from './HourBoxDetails';
+import ShowMoreButton from '../../common/components/ShowMoreButton';
+import HourBoxesContainer from '../hourBoxesContainer/HourBoxesContainer';
 import WeatherIcon from '../weatherIcon/WeatherIcon';
 import { FadeInTop } from '../../common/animations/Animations';
 
-class WeatherDetails extends Component {
+class WeatherDataBox extends Component {
   state = {
     active: false,
     data: null,
@@ -132,7 +132,7 @@ class WeatherDetails extends Component {
                 <b>Pressure:</b> {pressure} hPa
               </div>
             </div>
-            <Button
+            <ShowMoreButton
               changeParentState={
                 showDetails ? this.hideDetails : this.showDetails
               }
@@ -140,7 +140,7 @@ class WeatherDetails extends Component {
           </div>
         </FadeInTop>
         {showDetails && (
-          <HourBoxDetails
+          <HourBoxesContainer
             data={data}
             formState={showDetails}
             lat={lat}
@@ -152,4 +152,4 @@ class WeatherDetails extends Component {
   }
 }
 
-export default WeatherDetails;
+export default WeatherDataBox;
