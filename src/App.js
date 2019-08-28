@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 
-import Header from './components/Header/Header';
-import Form from './components/Form/Form';
-import WeatherDetails from './components/WeatherDetails/WeatherDetails';
+import Footer from './components/footer/Footer';
+import Form from './components/form/Form';
+import Header from './components/header/Header';
+import WeatherDetails from './components/weatherDetails/WeatherDetails';
+import { FadeInTop } from './common/animations/Animations';
 
 class App extends Component {
   state = {
+    animationStart: false,
     weatherData: null,
   };
 
@@ -14,16 +17,25 @@ class App extends Component {
       weatherData: data,
     });
 
+  componentDidMount() {
+    this.setState({ animationStart: true });
+  }
+
   render() {
-    const { weatherData } = this.state;
+    const { weatherData, animationStart } = this.state;
 
     return (
       <>
-        <Header />
-        <div className="container">
+        <Header animationState={animationStart} />
+        <FadeInTop
+          animationDelay={100}
+          className="container"
+          pose={animationStart ? 'visible' : 'hidden'}
+        >
           <Form setWheaterData={this.setWheaterData} />
           {weatherData && <WeatherDetails data={weatherData} />}
-        </div>
+        </FadeInTop>
+        <Footer animationState={animationStart} />
       </>
     );
   }
