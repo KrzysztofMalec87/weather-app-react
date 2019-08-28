@@ -26,24 +26,6 @@ class HourBoxDetails extends Component {
     this.getAdditionalData();
   }
 
-  componentDidUpdate(prevProps) {
-    const { data: prevData } = prevProps;
-    const { data } = this.state.data;
-
-    if (prevData !== data) {
-      this.getAdditionalData();
-    }
-  }
-
-  updateData = () => {
-    const { data } = this.state.data;
-
-    this.setState({ data });
-  };
-
-
-
-
   render() {
     const { active, data, error } = this.state;
 
